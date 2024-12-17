@@ -25,6 +25,7 @@ import re, mmap, bz2, zlib, gzip, tarfile, io, fcntl, tempfile
 import argparse, configparser, hashlib, hmac, functools, uuid
 import getpass, base64, platform, resource, itertools, string, struct
 import xml.etree.ElementTree, json, ctypes, ctypes.util, atexit
+import shutil
 from array import array
 from urllib.parse import urlparse
 from math import ceil
@@ -1682,39 +1683,39 @@ class DataCryptography:
 
 
 class CP:
-    awk = "/usr/bin/gawk"
-    sed = "/usr/bin/sed"
-    sort = "/usr/bin/sort"
-    cat = "/usr/bin/cat"
-    mkdir = "/usr/bin/mkdir"
-    python = "/usr/bin/python3"
-    mv = "/usr/bin/mv"
-    grep = "/usr/bin/grep"
-    ssh = "/usr/bin/ssh"
-    sh = "/usr/bin/sh"
-    tar = "/usr/bin/tar"
-    tail = "/usr/bin/tail"
-    tee = "/usr/bin/tee"
-    sync = "/usr/bin/sync"
-    cp = "/usr/bin/cp"
-    chattr = "/usr/bin/chattr"
-    xargs = "/usr/bin/xargs"
-    sha256sum = "/usr/bin/sha256sum"
-    cmp = "/usr/bin/cmp"
-    gzip = "/usr/bin/gzip"
-    env = "/usr/bin/env"
-    ps = "/usr/bin/ps"
-    uniq = "/usr/bin/uniq"
-    ionice = "/usr/bin/ionice"
-    qvm_run = "/usr/bin/qvm-run"
-    rm = "/usr/bin/rm"
-    find = "/usr/bin/find"
-    thin_delta = "/usr/sbin/thin_delta"
-    filefrag = "/usr/sbin/filefrag"
-    lvm = "/usr/sbin/lvm"
-    blkdiscard = "/sbin/blkdiscard"
-    dmsetup = "/sbin/dmsetup"
-    btrfs = "/usr/sbin/btrfs" if os.path.exists("/usr/sbin/btrfs") else "/bin/btrfs"
+    awk = shutil.which("gawk") or shutil.which("awk")
+    sed = shutil.which("sed")
+    sort = shutil.which("sort")
+    cat = shutil.which("cat")
+    mkdir = shutil.which("mkdir")
+    python3 = shutil.which("python3")
+    mv = shutil.which("mv")
+    grep = shutil.which("grep")
+    ssh = shutil.which("ssh")
+    sh = shutil.which("sh")
+    tar = shutil.which("tar")
+    tail = shutil.which("tail")
+    tee = shutil.which("tee")
+    sync = shutil.which("sync")
+    cp = shutil.which("cp")
+    chattr = shutil.which("chattr")
+    xargs = shutil.which("xargs")
+    sha256sum = shutil.which("sha256sum")
+    cmp = shutil.which("cmp")
+    gzip = shutil.which("gzip")
+    env = shutil.which("env")
+    ps = shutil.which("ps")
+    uniq = shutil.which("uniq")
+    ionice = shutil.which("ionice")
+    qvm_run = shutil.which("qvm-run")
+    rm = shutil.which("rm")
+    find = shutil.which("find")
+    thin_delta = shutil.which("thin_delta")
+    filefrag = shutil.which("filefrag")
+    lvm = shutil.which("lvm")
+    blkdiscard = shutil.which("blkdiscard")
+    dmsetup = shutil.which("dmsetup")
+    btrfs = shutil.which("btrfs")
 
 
 # Manage local (source) data volumes, thin lvm and reflink image files and snapshots.
