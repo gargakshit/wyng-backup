@@ -4935,8 +4935,8 @@ time_start, monotonic_start = time.time(), time.monotonic()
 signal_handlers  = {}    ; signals_caught = []    ; error_cache = []
 
 
-if sys.hexversion < 0x3080000:
-    x_it(1, "Python ver. 3.8 or greater required.")
+# if sys.hexversion < 0x3080000:
+#     x_it(1, "Python ver. 3.8 or greater required.")
 
 # Allow only one instance at a time
 lockpath = "/var/lock/"+prog_name
